@@ -4,15 +4,11 @@ import android.annotation.SuppressLint
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.ihfazh.remoteworkerid.databinding.ActivityMainBinding
-import com.ihfazh.remoteworkerid.ui.BlogFragment
-import com.ihfazh.remoteworkerid.ui.PromoFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

@@ -10,8 +10,10 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
+import android.widget.Toast
 import com.airbnb.lottie.LottieAnimationView
 import java.lang.Exception
+import java.net.URLEncoder
 
 class RWIDWebClient(
     private val context: Context,
@@ -54,11 +56,25 @@ class RWIDWebClient(
                 context.startActivity(intent)
                 return true
             }
+
+            if (url.contains("twitter.com/intent")){
+                return false
+            }
+
+            if (url.contains("facebook.com/sharer")) {
+                return false
+            }
+
+            if (url.contains("linkedin.com/share")) {
+                return false
+            }
+
+            if (url.contains("google.com/share")) {
+                return false
+            }
         }
 
-        val host = Uri.parse(url).host
-        println(host)
-        when(host){
+        when(Uri.parse(url).host){
             "www.facebook.com" -> {
                 openFacebook()
                 return true

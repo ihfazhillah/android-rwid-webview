@@ -6,10 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebChromeClient
 import com.ihfazh.remoteworkerid.RWIDWebClient
 import com.ihfazh.remoteworkerid.databinding.FragmentBlogBinding
 
-class PromoFragment : Fragment() {
+class WebViewFragment(private val urlPage: String) : Fragment() {
     private lateinit var binding: FragmentBlogBinding
 
     override fun onCreateView(
@@ -26,11 +27,17 @@ class PromoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding.webView) {
-            loadUrl("https://remoteworker.id/promo?affid=47ZY8rGf")
+            loadUrl(urlPage)
             webViewClient =
                 RWIDWebClient(view.context.applicationContext, binding.progressBar, binding.errorAnimation)
             settings.javaScriptEnabled = true
-            settings.useWideViewPort = true
+            webChromeClient = WebChromeClient()
+        }
+    }
+
+    companion object {
+        fun create(urlPage: String): WebViewFragment{
+            return WebViewFragment(urlPage)
         }
     }
 }
