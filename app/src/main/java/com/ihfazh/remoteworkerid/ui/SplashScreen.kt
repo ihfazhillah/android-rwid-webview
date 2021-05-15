@@ -1,4 +1,4 @@
-package com.ihfazh.remoteworkerid
+package com.ihfazh.remoteworkerid.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
+import com.ihfazh.remoteworkerid.MainActivity
+import com.ihfazh.remoteworkerid.R
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

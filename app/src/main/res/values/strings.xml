@@ -3,4 +3,6 @@
     <string name="logo_rwid">Logo RWID</string>
     <string name="remote_worker_indonesia">Remote Worker Indonesia</string>
     <string name="bangun_karirmu_dari_rumah">Bangun Karirmu Dari Rumah</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
