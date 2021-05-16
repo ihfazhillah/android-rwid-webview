@@ -10,10 +10,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
-import android.widget.Toast
 import com.airbnb.lottie.LottieAnimationView
-import java.lang.Exception
-import java.net.URLEncoder
 
 class RWIDWebClient(
     private val context: Context,
@@ -36,7 +33,7 @@ class RWIDWebClient(
         error: WebResourceError?
     ) {
         if (if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                error?.errorCode == WebViewClient.ERROR_CONNECT
+                error?.errorCode == ERROR_CONNECT
             } else {
                 TODO("VERSION.SDK_INT < M")
             }
