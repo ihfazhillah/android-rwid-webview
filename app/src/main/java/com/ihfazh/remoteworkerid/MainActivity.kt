@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.ihfazh.remoteworkerid.databinding.ActivityMainBinding
+import com.ihfazh.remoteworkerid.ui.WebViewFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var adapter: ViewPagerAdapter
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("SetJavaScriptEnabled", "UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +21,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.viewPager.adapter = ViewPagerAdapter(this)
+        adapter = ViewPagerAdapter(this)
+        binding.viewPager.adapter = adapter
+
         binding.viewPager.reduceDragSensitivity()
         TabLayoutMediator(
             binding.tabLayout, binding.viewPager, false,  true
@@ -37,6 +41,17 @@ class MainActivity : AppCompatActivity() {
             }
         }.attach()
 
+    }
+
+    override fun onBackPressed() {
+        binding.viewPager.currentItem
+
+        val currentFragment: WebViewFragment = supportFragmentManager.fragments[binding.viewPager.currentItem] as WebViewFragment
+        if (currentFragment.canGoBack()){
+            currentFragment.goBack()
+        } else {
+            super.onBackPressed()
+        }
     }
 
 

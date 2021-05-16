@@ -40,4 +40,12 @@ class WebViewFragment(private val urlPage: String) : Fragment() {
             return WebViewFragment(urlPage)
         }
     }
+
+    fun canGoBack(): Boolean{
+        return binding.webView.canGoBack()
+    }
+
+    fun goBack(){
+        binding.webView.goBack()
+    }
 }
